@@ -1,12 +1,12 @@
 page-home {
-    background-image: url('../assets/img/homeReady/bgHome.jpg');
+    background-image: url('../assets/img/homeReady/bgHome.jpg') !important;
     background-size: cover;
     background-position: center center;
 
     .homeButton {
         width: 40vw;
         height: 8vh;
-        background-color: #184f45;
+        background-color: map-get($colors, secondary);
         color: white;
         display: flex;
         align-items: center;

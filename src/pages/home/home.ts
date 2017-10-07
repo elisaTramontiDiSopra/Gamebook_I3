@@ -28,4 +28,8 @@ export class HomePage {
     });
   }
 
+  goToPage(namePage){
+    this.navCtrl.push(namePage);
+  }
+
 }
