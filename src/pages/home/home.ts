@@ -15,8 +15,17 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.gameData.handleLanguage();
-  
+    //all'avvio controlla se c'è una lingua impostata e se non c'è
+    //visualizza l'alert per selezionarla
+    this.storage.get("language").then((data) => {
+      if(data == null) {
+        console.log("scegli una lingua");
+        this.navCtrl.push("LanguageAlertPage");
+      } else {
+        console.log("lingua già impostata");
+        this.gameData.handleLanguage();
+      }
+    });
   }
 
 }

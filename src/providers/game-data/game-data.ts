@@ -28,11 +28,16 @@ export class GameDataProvider {
   inventoryJson: any;
   characterJson = 'assets/json/character.json';
 
+  creditsButton: any;
+  rulesButton: any;
+  settingsButton: any;
+  loadButton: any;
+
   handleLanguage(){
     this.storage.get("language").then((data) => {
       if(data == null) {
         console.log("scegli una lingua");
-
+        //this.navCtrl.push("LanguageAlertPage");
       } else {
         switch (data) {
           case 'it':
@@ -54,7 +59,7 @@ export class GameDataProvider {
       }
     });
   }
-/*
+
   getHomeButtons(){
     this.http.get(this.gameJson).map(res => res.json().home).subscribe((data) => {
       this.creditsButton = data["credits"];
@@ -62,5 +67,5 @@ export class GameDataProvider {
       this.settingsButton = data["settings"];
     });
   }
-*/
+
 }
