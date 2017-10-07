@@ -7,10 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule} from '@angular/http';
 
-import { GameDataProvider } from '../providers/game-data/game-data';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { GameDataProvider } from '../providers/game-data/game-data';
 
 @NgModule({
   declarations: [
@@ -20,6 +19,7 @@ import { HomePage } from '../pages/home/home';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -31,7 +31,7 @@ import { HomePage } from '../pages/home/home';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GameDataProvider
+    GameDataProvider,
   ]
 })
 export class AppModule {}

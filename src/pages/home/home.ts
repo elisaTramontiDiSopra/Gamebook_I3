@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-
-import { GameDataProvider } from 'ionic-angular';
-
+import { Storage } from '@ionic/storage';
+import { GameDataProvider } from '../../providers/game-data/game-data';
 
 
 @Component({
@@ -12,8 +10,13 @@ import { GameDataProvider } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+    console.log("START HOME.TS");
+  }
 
+  ionViewDidLoad() {
+    GameDataProvider;
+  
   }
 
 }
