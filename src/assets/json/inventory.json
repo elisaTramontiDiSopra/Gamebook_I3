@@ -1,0 +1,56 @@
+[
+  {
+    "id": "cloak",
+    "name": "Mantello del mimetismo",
+    "description": "Donato da Elf, ti permette di passare inosservata nella folla e di mimetizzarti tra gli alberi nel bosco",
+    "jpg": "cloak.png",
+    "superPowerText": "Permette di acquisire l'abilità MIMETISMO",
+    "addedSkill": "hide",
+    "wearText": "indossa",
+    "unwearText": "togli",
+    "wearSkill": "hide",
+    "sellPrice": 20,
+    "sellText": "Vendi a 20$"
+  },
+  {
+    "id": "necklace",
+    "name": "Collana della Signora Mona",
+    "description": "Non sempre tentare di fare i furbi è la giusta scelta da fare, e questa collana ne è la prova",
+    "jpg": "necklace.png",
+    "superPowerText": "Indossarlo ti fa guadagnare 1 punto REPUTAZIONE",
+    "wearText": "indossa",
+    "unwearText": "togli",
+    "wearStat": "reputation",
+    "wearStatValue": -5,
+    "sellPrice": 15,
+    "sellText": "Vendi a 15$"
+  },
+  {
+    "id": "healthkit",
+    "name": "Pozione salutare",
+    "description": "La pozione salutare ti permette di recuperare un po' di preziose energie",
+    "jpg": "healthkit.png",
+    "superPowerText": "Bere la pozione fa guadagnare 4 punti VITA",
+    "useText": "Bevi",
+    "useStat": "life",
+    "useStatValue": 4,
+    "sellPrice": 30,
+    "sellText": "Vendi a 30$",
+    "addLife": 4,
+    "funcionAddLife": "<button (tap)=addLife(4)>Usa</button>"
+  },
+  {
+    "id": "immortalpotion",
+    "name": "Pozione dell'immortalità",
+    "description": "Bere la pozione può darti 12 punti vita o farti risorgere dopo una sconfitta in uno scontro.",
+    "jpg": "immortalPotion.png",
+    "superPowerText": "Bere la pozione ti riporterà in vita",
+    "useText": "Bevi",
+    "useStat": "life",
+    "useStatValue": 12,
+    "sellPrice": 90,
+    "sellText": "Vendi a 90$",
+    "addLife": 12,
+    "funcionAddLife": "<button (tap)=addLife(12)>Usa</button>"
+  }
+]
