@@ -10,12 +10,12 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public gameData: GameDataProvider) {
     console.log("START HOME.TS");
   }
 
   ionViewDidLoad() {
-    GameDataProvider;
+    this.gameData.getHome();
   
   }
 
