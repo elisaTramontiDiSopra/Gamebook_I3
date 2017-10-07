@@ -15,7 +15,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.gameData.getHome();
+    this.gameData.handleLanguage();
   
   }
 
