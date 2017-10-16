@@ -12,16 +12,29 @@ export class ChoicesComponent {
 
   thereIsAChoice1; thereIsAChoice2; thereIsAChoice3: boolean;
   
+  @Input() chapNum;
+  @Input() choice1;
+  @Input() goTo1;
+  @Input() choice2;
+  @Input() goTo2;
+  @Input() choice3;
+  @Input() goTo3;
+  @Input() itemAcquired;
+  @Input() skillAcquired;
+  @Input() fightParams;
+
+
+/*
   @Input ('chapNum') chapterNumber;
-  @Input ('choice1') choice1;
+  //@Input ('choice1') choice1;
   @Input ('choice2') choice2;
   @Input ('choice3') choice3;
-  @Input ('goTo1') goTo1;
+  //@Input ('goTo1') goTo1;
   @Input ('goTo2') goTo2;
   @Input ('goTo3') goTo3;
   @Input ('itemAcquired') newItem;
   @Input ('skillAcquired') newSkill;
-  @Input ('fightParams') fightParams;
+  @Input ('fightParams') fightParams;*/
 
   constructor(public gameData: GameDataProvider, public storage:Storage, public navCtrl:NavController) {
     console.log('Hello Choices Component');
@@ -39,13 +52,12 @@ export class ChoicesComponent {
   choice1Function(){
     console.log('choice function 1');
     //check if something is aquired with choice 1 add it as aquired
-    if (this.newItem[0] = 1) {
-      console.log("item acquired with choice 2 item= "+this.newItem[1])
-      this.storage.set("acquired"+this.newItem[1], true);
+    if (this.itemAcquired !== undefined && this.itemAcquired[0] == 1) {
+      //console.log("item acquired with choice 2 item= "+this.itemAcquired[1])
+      this.storage.set("acquired"+this.itemAcquired[1], true);
     }
-    //check if some skill is itemAquired
-    if (this.newSkill[0] = 1) {
-      this.storage.set(this.newSkill[1], true);
+    if (this.skillAcquired !== undefined && this.skillAcquired[0] == 1) {
+      this.storage.set(this.skillAcquired[1], true);
     }
     //this.gameData.getJsonData(this.goTo1);
     if (this.goTo1 == "Fight") {
@@ -53,6 +65,7 @@ export class ChoicesComponent {
         fightParams: this.fightParams
       }); 
     } else {
+      console.log("gotoChapter "+this.goTo1);
       this.storage.set("chapter", this.goTo1);
       this.gameData.getJsonData(this.goTo1);
     }
@@ -60,13 +73,13 @@ export class ChoicesComponent {
 
   choice2Function(){
     //console.log('choice function 2');
-    if (this.newItem[0] = 2) {
+    if (this.itemAcquired !== undefined && this.itemAcquired[0] == 2) {
       console.log('choice function 2 new item');
-      this.storage.set("acquired"+this.newItem[1], true);
+      this.storage.set("acquired"+this.itemAcquired[1], true);
     }
-    if (this.newSkill[0] = 2) {
+    if (this.skillAcquired !== undefined && this.skillAcquired[0] == 2) {
       console.log('choice function 2 new skill');
-      this.storage.set(this.newSkill[1], true);
+      this.storage.set(this.skillAcquired[1], true);
     }
     if (this.goTo2 == "Fight") {
       this.navCtrl.push("FightPage", {
@@ -82,12 +95,12 @@ export class ChoicesComponent {
   choice3Function(){
     console.log('choice function 3');
     
-    if (this.newItem[0] = 3) {
-      this.storage.set("acquired"+this.newItem[1], true);
+    if (this.itemAcquired !== undefined && this.itemAcquired[0] == 3) {
+      this.storage.set("acquired"+this.itemAcquired[1], true);
     }
     
-    if (this.newSkill[0] = 3) {
-      this.storage.set(this.newSkill[1], true);
+    if (this.skillAcquired !== undefined && this.skillAcquired[0] == 3) {
+      this.storage.set(this.skillAcquired[1], true);
     }
     if (this.goTo3 == "Fight") {
       this.navCtrl.push("FightPage", {
