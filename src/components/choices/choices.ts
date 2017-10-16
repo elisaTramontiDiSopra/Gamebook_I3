@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { IonicStorageModule } from '@ionic/storage'
+import { Storage } from '@ionic/storage';
 
 import { GameDataProvider } from '../../providers/game-data/game-data';
 
