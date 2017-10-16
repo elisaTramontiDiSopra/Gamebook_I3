@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BackBarComponent } from './back-bar/back-bar';
 import { TopBarComponent } from './top-bar/top-bar';
 import { BottomBarComponent } from './bottom-bar/bottom-bar';

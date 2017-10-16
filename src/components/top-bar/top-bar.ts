@@ -8,7 +8,6 @@ import { NavController, NavParams } from 'ionic-angular';
 export class TopBarComponent {
 
   @Input() chapNum: number;
-  //this.chapterNumber = this.chapNum;
 
   constructor(public navCtrl: NavController, public novParams: NavParams) {}
 

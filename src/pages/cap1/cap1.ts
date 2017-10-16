@@ -38,7 +38,8 @@ export class Cap1Page {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Cap1Page');
     this.gameData.getJsonData(this.chapter);
-    this.storage.set('chapter', this.chapter);                  //SAVE CHAPTER VALUE
+    this.storage.set('chapter', this.chapter);  
+    console.log("this.chapter " + this.chapter);                //SAVE CHAPTER VALUE
   }
 
   /* */
