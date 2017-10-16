@@ -81,6 +81,21 @@ export class HomePage {
 
 
 
+goToFightPage(enemyAttackValue: number, enemyLifeValue: number, enemySrc: string){
+     Promise.all([
+     this.storage.get('life'),
+     this.storage.get('attack'),
+     ]).then((value) => {
+       console.log(this.storage.get('life'))
+       this.navCtrl.push("FightPage",{
+         characterLife: value[0],
+         characterAttack: value[1],
+         enemyAttack: enemyAttackValue,
+         enemyLife: enemyLifeValue,
+         enemySrc: enemySrc,
+       });
+     });
+}
 
 
 

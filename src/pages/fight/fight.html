@@ -1,0 +1,28 @@
+<ion-content padding>
+    <div class="character">
+      <div class="characterImgContainer_fightPage">
+        <img src="assets/img/charReady/female.png" class="characterImg_fightPage">
+      </div>
+      <div class="stats">
+          <p>{{this.gameData.lifeLabel}}: <span class="value">{{this.characterLife}}</span></p>
+          <p>{{this.gameData.attackLabel}}: <span class="value">{{this.gameData.attackValue}}</span></p>
+          <p>{{this.gameData.pointsLabel}}: <span class="value">{{this.charDiceOne}} + {{this.charDiceTwo}}</span></p>
+      </div>
+    </div>
+    <div class="fightButton" (tap)="fight()">{{this.gameData.fightTextLabel}}</div>
+    <div class="fightText">
+      <p>{{this.message}}</p>
+      <p><span class="good">{{this.attackMessage}}</span><span class="bad">{{this.damageMessage}}</span></p>
+    </div>
+    <div class="enemy">
+      <div class="enemyImgContainer_fightPage">
+        <img src='{{enemySrc}}' class="enemyImg_fightPage">
+      </div>
+      <div class="stats">
+        <p>{{this.gameData.lifeLabel}}: <span class="value">{{this.enemyLife}}</span></p>
+        <p>{{this.gameData.attackLabel}}: <span class="value">{{this.enemyAttack}}</span></p>
+        <p>{{this.gameData.pointsLabel}}: <span class="value">{{this.enemyDiceOne}} + {{this.enemyDiceTwo}}</span></p>
+      </div>
+    </div>
+  </ion-content>
+  

@@ -259,6 +259,22 @@ export class GameDataProvider {
    });
  }
 
+/********************************************************************************* FIGHT FUNCIONS */
+
+ getSkillsStats(){
+  this.storage.get('hide').then((data) => {
+    this.hide = data;
+    });
+    this.storage.get('swim').then((data) => {
+      this.swim = data;
+    });
+    this.storage.get('talk').then((data) => {
+      this.talk = data;
+    });
+    this.storage.get('track').then((data) => {
+      this.track = data;
+  });
+}
 
 
 
