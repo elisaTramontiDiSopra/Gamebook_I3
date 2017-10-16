@@ -228,4 +228,38 @@ export class GameDataProvider {
       });
   }
 
+  
+  /********************************************************************************* CAP1 FUNCIONS */
+  
+  text; beforeTextGood; beforeTextBad; afterTextGood; afterTextBad: string; 
+  choice1; choice2; choice3: string;
+  goTo1; goTo2; goTo3: number;
+  fight: any;
+  itemAcquired; skillAcquired; statAcquired: any;
+  chapter: number;
+
+  getJsonData(chapter: number){
+    this.http.get(this.gameJson).map(res => res.json()).subscribe((data) => {
+    this.beforeTextGood = data["story"][chapter]["beforeTextGood"];
+    this.beforeTextBad = data["story"][chapter]["beforeTextBad"];
+    this.text = data["story"][chapter]["text"];
+    this.afterTextGood = data["story"][chapter]["afterTextGood"];
+    this.afterTextBad = data["story"][chapter]["afterTextBad"];
+    this.choice1 = data["story"][chapter]["choice1"];
+    this.goTo1 = data["story"][chapter]["goTo1"];
+    this.choice2 = data["story"][chapter]["choice2"];
+    this.goTo2 = data["story"][chapter]["goTo2"];
+    this.choice3 = data["story"][chapter]["choice3"];
+    this.goTo3 = data["story"][chapter]["goTo3"];
+    this.fight = data["story"][chapter]["fight"];
+    this.itemAcquired = data["story"][chapter]["itemAcquired"];
+    this.skillAcquired = data["story"][chapter]["skillAcquired"];
+    this.chapter = data["story"][chapter]["chapter"];
+    return data;
+   });
+ }
+
+
+
+
 }

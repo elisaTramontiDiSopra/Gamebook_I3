@@ -1,0 +1,57 @@
+bottom-bar {
+    .stats{
+        background: url('../assets/img/bottomBar/bar.jpg') repeat-x;
+        background-size: contain;
+        display: flex;
+        padding: 0 0 0 2vw;
+        //align-content: center;
+        justify-content: space-between;
+        height: 6vh;
+        width: 70vw;
+    }
+    .stats:after{
+        background: url('../assets/img/bottomBar/barArrow.png') no-repeat;
+        background-size: contain;
+        height: 6vh;
+        width: 9vw;
+        content: '';
+        position: relative;
+        left: 7vw;
+    }
+    .bottomStats{
+        font-family: Escargot;
+        margin: 0 1vw 0 0;
+        padding: 1vw;
+        font-size: 5vw;
+        color: white;
+        display: flex;
+        align-items: center;
+        img{
+            height: 80%;
+            margin-right: 0.5vw;
+        }
+    }
+    .inventory{
+        height: 10vh;
+        margin: 0;
+        position: absolute;
+        right: 10vw;
+        img{
+            height: 80%;
+        }
+    }
+
+
+    .chapterFooter{
+    width: 100vw;
+    height: 10vh;
+    background: url('../assets/img/bottomBar/bottom.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    z-index: 99;
+    }
+}
