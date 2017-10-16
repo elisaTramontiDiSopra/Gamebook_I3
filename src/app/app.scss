@@ -35,20 +35,24 @@ html {
       text-transform: uppercase;
       font-family:escargot;
       text-align: center;
-  } 
+  }
+  
   .title{
       color: map-get($colors, third);
       font-size: 7vw;
       font-family:escargot;
       text-align: center;
+      text-transform: uppercase;
   }
-  
+  .paragraphMarginedBottom{
+      margin-bottom: 8vh;
+  }
   .column{
       display: flex;
       flex-direction: column;
   }
   .row {
-          display: flex;
+    display: flex;
       flex-direction: row;
   }
   

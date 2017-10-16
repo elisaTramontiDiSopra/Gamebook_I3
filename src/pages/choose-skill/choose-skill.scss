@@ -1,0 +1,33 @@
+page-choose-skill {
+    .row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .column{
+        display: auto;
+    }
+    .imgSkill {
+        width: 20vw;
+        height: 19vw;
+    }
+    .skills{
+        & p {
+            margin: 0 !important;
+        }
+    }
+    .skillSelected {
+        color: map-get($colors, primary);
+        font-weight: bold;
+    }
+    .skillTitle{
+        color: map-get($colors, primary);
+        font-family: escargot;
+        text-transform: uppercase;
+        margin: 0 !important;
+    }
+    .selectedSkill{
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+}

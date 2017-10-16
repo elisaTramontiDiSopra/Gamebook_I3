@@ -38,7 +38,8 @@
             "talk": "parlantina",
             "talkText": "Ti permetterà di convincere con più facilità le persone delle tue idee, aprendoti strade altrimenti non percorribili.",
             "chooseSkillTitle": "Scegli un'abilità",
-            "chooseSkillText": "Seleziona le tue abilità con attenzione. Alcune le potrai acquisire durante la storia se farai le scelte corrette, altre le potrai acquisire solo comprando ed utilizzando oggetti e pezzi d'arredamento nella tua tana, altre ancora sono disponibili solo in questa schermata. Pensa bene e non prendere questa decisione alla leggera perchè potrebbe influenzare il corso della tua storia"
+            "chooseSkillText": "Seleziona le tue abilità con attenzione. Alcune le potrai acquisire durante la storia se farai le scelte corrette, altre le potrai acquisire solo comprando ed utilizzando oggetti e pezzi d'arredamento nella tua tana, altre ancora sono disponibili solo in questa schermata. Pensa bene e non prendere questa decisione alla leggera perchè potrebbe influenzare il corso della tua storia",
+            "chooseSkillButton": "Conferma"
     },
     "home": {
             "credits": "Autori",

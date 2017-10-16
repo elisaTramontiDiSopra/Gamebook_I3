@@ -11,6 +11,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { GameDataProvider } from '../providers/game-data/game-data';
 
+
 @NgModule({
   declarations: [
     MyApp,

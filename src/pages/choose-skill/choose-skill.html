@@ -1,0 +1,46 @@
+<ion-content padding>
+  <p class="title">{{this.gameData.chooseSkillTitle}}</p>
+  <p class="paragraphMarginedBottom">{{this.gameData.chooseSkillText}}</p>
+
+  <div class="column">
+    <div class="skill" (tap)=selectSwim() [ngClass]="{'skillSelected': this.swimSelected }">
+      <div class="row">
+        <img class="imgSkill" src='assets/img/charPageReady/swim.png' />
+        <div class="column">
+          <p class="skillTitle">{{this.gameData.swimLabel}}</p>
+          <p>{{this.gameData.swimText}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill" (tap)=selectHide() [ngClass]="{'skillSelected': this.hideSelected }">
+      <div class="row">
+        <img class="imgSkill" src='assets/img/charPageReady/hide.png' />
+        <div class="column">
+          <p class="skillTitle">{{this.gameData.hideLabel}}</p>
+          <p>{{this.gameData.hideText}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill" (tap)=selectTrack() [ngClass]="{'skillSelected': this.trackSelected }">
+      <div class="row">
+        <img class="imgSkill" src='assets/img/charPageReady/track.png' />
+        <div class="column">
+          <p class="skillTitle">{{this.gameData.trackLabel}}</p>
+          <p>{{this.gameData.trackText}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="skill" (tap)=selectTalk() [ngClass]="{'skillSelected': this.talkSelected }">
+      <div class="row">
+        <img class="imgSkill" src='assets/img/charPageReady/talk.png' />
+        <div class="column">
+          <p class="skillTitle">{{this.gameData.talkLabel}}</p>
+          <p>{{this.gameData.talkText}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button" (tap)=confirm()>{{this.gameData.chooseSkillButton}}</div>
+
+</ion-content>
+
