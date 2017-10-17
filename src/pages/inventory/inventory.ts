@@ -26,25 +26,27 @@ export class InventoryPage {
     this.gameData.getLabelsName();    
     this.http.get('assets/json/inventory.json').map(res => res.json()).subscribe((data) => {
       console.log(data);    
-      for (let i = 0; i < data.length; i++) {
+      this.inventory = data;
+      for (let i = 0; i < this.inventory.length; i++) {
         //console.log(data[i]['id']);
-        this.storage.get("acquired"+data[i]['id']).then((val) =>{
-          console.log("acquired"+data[i]['id'] + " " + val);
+        this.storage.get("acquired"+this.inventory[i]['id']).then((val) =>{
+          console.log("acquired"+this.inventory[i]['id'] + " " + val);
           this.acquired.push(val); 
-        })/*
-        this.storage.get("acquired"+data[i]['id']).then((val) =>{
-          console.log(val);
-          this.acquired.push(val);
-          //console.log(this.acquired);
-        });*//*
-        this.storage.get("worn"+this.inventory[i]['id']).then((val) =>{
-          console.log("worn"+this.inventory[i]['id']+" val: "+val);
-          this.worn[i]=val;
-          //console.log("worn"+this.worn);
-        });*/
+          console.log(this.acquired);
+        })
+        this.storage.get("worn"+data[i]['id']).then((val) =>{
+          console.log("worn"+data[i]['id'] + " " + val);
+          this.worn[i] = val; 
+        })
       }
     });
   } 
+
+  ionViewDidLoad() {
+    this.gameData.getLabelsName();  
+    console.log("LOADED");
+  }
+
 
   sell(i, item, price){
     this.gameData.updateMoney("+", price);
