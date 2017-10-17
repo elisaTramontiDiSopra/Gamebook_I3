@@ -1,9 +1,8 @@
-
-
-<back-bar></back-bar>
-
-
 <ion-content padding>
+  <back-bar></back-bar>
+  <div *ngIf="!acquired.lenght > 0">
+    <p class="title">{{this.gameData.emptyInventoryText}}</p>
+  </div>
   <div *ngFor="let item of inventory; let i = index">
     <div *ngIf="acquired[i]" class="inventoryItem" id=item [class.hide]='!acquired[i]'>
       <div class="itemImg">

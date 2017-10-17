@@ -103,7 +103,7 @@ export class GameDataProvider {
   startOverText: any;
   liveAgainText: any;
 
-
+  emptyInventoryText: any;
 
   getLabelsName(){
     this.http.get(this.gameJson).map(res => res.json()).subscribe((data) => {
@@ -131,6 +131,8 @@ export class GameDataProvider {
       this.keepAdventureText = data["labels"]["alert"]["keepAdventureText"];
       this.startOverText = data["labels"]["alert"]["startOverText"];
       this.liveAgainText = data["labels"]["alert"]["liveAgainText"];
+      //INVENTORY
+      this.emptyInventoryText = data["labels"]["emptyInventoryText"];
     });
   }
 

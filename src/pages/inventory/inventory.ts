@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 import { GameDataProvider } from '../../providers/game-data/game-data';
 
 import { BackBarComponent } from '../../components/back-bar/back-bar';
@@ -15,26 +16,32 @@ import { BackBarComponent } from '../../components/back-bar/back-bar';
 
 export class InventoryPage {
 
-  inventory: any;
+  inventory; emptyInventoryText: any;
   imgUrl: string = "../../assets/img/inventoryReady/";
   
-  acquired; worn: any = [];
+  acquired: any = []; 
+  worn: any = [];
  
   constructor(public navCtrl: NavController, public navParams: NavParams, public gameData:GameDataProvider, public http: Http, public storage:Storage) {
+    this.gameData.getLabelsName();    
     this.http.get('assets/json/inventory.json').map(res => res.json()).subscribe((data) => {
-      console.log(data);
-      this.inventory = data;
-     // this.checkAquired();    
-      for (let i = 0; i < this.inventory.length; i++) {
-        this.storage.get("acquired"+this.inventory[i]['id']).then((val) =>{
+      console.log(data);    
+      for (let i = 0; i < data.length; i++) {
+        //console.log(data[i]['id']);
+        this.storage.get("acquired"+data[i]['id']).then((val) =>{
+          console.log("acquired"+data[i]['id'] + " " + val);
+          this.acquired.push(val); 
+        })/*
+        this.storage.get("acquired"+data[i]['id']).then((val) =>{
+          console.log(val);
           this.acquired.push(val);
           //console.log(this.acquired);
-        });
+        });*//*
         this.storage.get("worn"+this.inventory[i]['id']).then((val) =>{
           console.log("worn"+this.inventory[i]['id']+" val: "+val);
           this.worn[i]=val;
           //console.log("worn"+this.worn);
-        });
+        });*/
       }
     });
   } 

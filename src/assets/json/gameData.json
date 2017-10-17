@@ -18,7 +18,8 @@
                         "keepAdventureText": "Continua la tua avventura",
                         "startOverText": "Ricomincia l'avventura",
                         "liveAgainText": "Usa la pozione dell'immortalità"
-                 }
+                 },
+                 "emptyInventoryText": "Il tuo inventario è vuoto"
     },
     "shaiChararcter":{
         "charDescription": "Shai è una giovane umana",
