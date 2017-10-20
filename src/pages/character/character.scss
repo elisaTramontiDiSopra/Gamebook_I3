@@ -1,3 +1,101 @@
 page-character {
-
-}
+    
+        .characterPageImg{
+            width: 100%;
+            height: 55vh;
+        }
+    
+        .columns {
+            display: flex;
+            height: 27vh;
+            font-family: Escargot;
+            font-size: 7vw;
+        }
+        .stats {
+            display: flex;
+            color: map-get($colors, third);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+    
+        }
+    
+        .label{
+            width: 45vw;
+            color: map-get($colors, third);
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 0 10vw;
+            & p {
+                margin: 0 !important;
+            }
+        }
+        .value {
+            width: 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            color: map-get($colors, forth);
+            font-weight: bold;
+            text-align: center;
+            margin-right: 5vw;
+            & p {
+                margin: 0 !important;
+            }
+        }
+    
+        .stats p:first-child {
+            margin-top: 0 !important;
+        }
+    
+        .extra {
+            width: 40vw;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+        }
+     
+    
+    
+        .inventary{
+            background: url("../assets/img/charPageReady/inventary.png");
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            width: 20vw;
+            height: 20vw;
+        }
+        .lair{
+            background: url('../assets/img/charPageReady/lair.png');
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            width: 20vw;
+            height: 20vw;
+        }
+    
+        .skillsDisplay{
+            display: flex;
+            justify-content: center;
+            height: 10vh;
+        }
+        .skill{
+            width: 20vw;
+        }
+    
+        .smallLabel {
+            font-family: escargot;
+            margin: 0 !important;
+            padding: 0!important;
+            position: relative;
+            bottom: 3vw;
+            display: flex;
+            justify-content: center;
+            color: map-get($colors, third);
+        }
+        .off {
+            color: map-get($colors, fourth) !important;
+        }
+    }
+    
