@@ -1,10 +1,12 @@
 page-inventory {
 
+    p:first-child{
+        margin-top: 0 !important;
+    }
 }
 
 .inventoryItem {
-    border-bottom: solid 0.4vh;
-    border-color: map-get($colors, forth);
+    border-bottom: solid 0.3vh map-get($colors, fourth);
     padding: 2vh 0;
     display: flex;
     flex-direction: row;

@@ -95,6 +95,8 @@ export class GameDataProvider {
   lifeLabel; attackLabel; moneyLabel; reputationLabel; pointsLabel: any;
   fightTextLabel; fightMsg1; fightMsg2; fightMsg3; fightMsg4: any;
 
+  inventoryTitleLabel: any;
+
   winTitle: any;
   winText: any;
   loseTitle: any;
@@ -112,6 +114,9 @@ export class GameDataProvider {
       this.hideLabel = data["skills"]["hide"];
       this.trackLabel = data["skills"]["track"];
       this.talkLabel = data["skills"]["talk"];
+
+      //PAGES TITLES
+      this.inventoryTitleLabel = data["labels"]["inventoryTitleLabel"];
 
       this.lifeLabel = data["labels"]["life"];
       this.attackLabel = data["labels"]["attack"];
@@ -275,6 +280,26 @@ export class GameDataProvider {
     });
     this.storage.get('track').then((data) => {
       this.track = data;
+  });
+}
+
+/********************************************************************************* LAIR FUNCIONS */
+
+armor; treasure; bed; wardrobe; table; bookshelves; buyText; closeText; noMoneyText; noMoneyButtonText: any;
+
+getLairData(){ 
+  this.http.get(this.gameJson).map(res => res.json()["lair"]).subscribe((data) => {
+    console.log(data);
+    this.buyText = data["buyText"];
+    this.closeText = data["closeText"];
+    this.noMoneyText = data["noMoneyText"];
+    this.noMoneyButtonText = data["noMoneyButtonText"];
+    this.armor = data["armor"];
+    this.treasure = data["treasure"];
+    this.bed = data["bed"];
+    this.wardrobe = data["wardrobe"];
+    this.table = data["table"];
+    this.bookshelves = data["bookshelves"];
   });
 }
 

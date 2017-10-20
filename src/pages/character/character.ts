@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
-/**
- * Generated class for the CharacterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { GameDataProvider } from '../../providers/game-data/game-data';
+
 
 @IonicPage()
 @Component({
@@ -15,11 +12,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CharacterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public gameData:GameDataProvider) {}
+  
+    src: string = "assets/img/charPageReady/";
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CharacterPage');
+    ionViewDidLoad() {
+      console.log('ionViewDidLoad CharacterPage');
+      this.gameData.getLabelsName();
+      this.gameData.getSkillsStats();
+    }
+  
+    goToInventory() {
+      this.navCtrl.push("InventoryPage");
+    }
+  
+    goToLair() {
+      this.navCtrl.push("LairPage");
+    }
+  
   }
-
-}

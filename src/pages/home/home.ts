@@ -14,22 +14,24 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public http: Http, public gameData: GameDataProvider) {
     console.log("START HOME.TS");
+    this.storage.set('language', 'it');
     this.setInventoryAsNotAcquired();
   }
 
   ionViewDidLoad() {
     //all'avvio controlla se c'è una lingua impostata e se non c'è
     //visualizza l'alert per selezionarla
+    this.navCtrl.push("LanguageAlertPage");
+    /*
     this.storage.get("language").then((data) => {
       if(data == null) {
-        this.storage.set('language', 'it');
         console.log("scegli una lingua");
         this.navCtrl.push("LanguageAlertPage");
       } else {
         console.log("lingua già impostata");
         this.gameData.handleLanguage();
       }
-    });
+    });*/
   }
 
   setEverythingToZero(){
