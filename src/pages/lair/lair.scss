@@ -1,0 +1,162 @@
+page-lair {
+    back-bar {
+        position: absolute;
+        right: 0;
+        z-index: 10;
+    }
+    #bg{
+        background-image: url('../assets/img/lairReady/bg.jpg');
+        background-size: cover;
+        background-position: center center;
+        width:100vw;
+        height: 100vh;
+    }
+    #objects{
+        width:100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+    }
+
+    .alert {
+        background-color: rgba(0, 0, 0, 0.85);
+        opacity: 80%;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        padding: 30vh 10vw;
+        color: white;
+    }
+
+    .alertNoMoney {
+        background-color: rgba(#950539, 0.65);
+        opacity: 80%;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        padding: 30vh 10vw;
+        color: white;
+    }
+
+    .commonArmor {
+        width: 20vw;
+        height: 6vh;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        top: 17vh;
+        right: 2vw;
+
+    }
+
+    #armorOff{
+        @extend .commonArmor;
+        background-image: url('../assets/img/lairReady/armorOff.png');
+    }
+    #armor{
+        @extend .commonArmor;
+        background-image: url('../assets/img/lairReady/armor.png');
+    }
+
+    .commonTreasure {
+        width: 8vh;
+        height: 9vh;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        top: 30vh;
+        right: 3vw;
+    }
+
+    #treasure {
+        @extend .commonTreasure;
+        background-image: url('../assets/img/lairReady/treasure.png');
+    }
+
+    #treasureOff {
+        @extend .commonTreasure;
+        background-image: url('../assets/img/lairReady/treasureOff.png') !important;
+    }
+
+    .commonBed {
+        width: 8vh;
+        height: 18vh;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        top: 17vh;
+        right: 84vw;
+    }
+    #bed {
+        @extend .commonBed;
+        background-image: url('../assets/img/lairReady/bed.png');
+    }
+
+    #bedOff {
+        @extend .commonBed;
+        background-image: url('../assets/img/lairReady/bedOff.png') !important;
+    }
+
+    .commonWardrobe{
+        width: 18vh;
+        height: 5vh;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        top: 35vh;
+        right: 57vw;
+    }
+    #wardrobe {
+        @extend .commonWardrobe;
+        background-image: url('../assets/img/lairReady/wardrobe.png');
+    }
+
+    #wardrobeOff{
+        @extend .commonWardrobe;
+        background-image: url('../assets/img/lairReady/wardrobeOff.png') !important;
+    }
+
+    .commonTable{
+        width: 28vh;
+        height: 24vh;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        top: 47vh;
+        right: 26vw;
+    }
+    #table {
+        @extend .commonTable;
+        background-image: url('../assets/img/lairReady/table.png');
+    }
+
+    #tableOff {
+        @extend .commonTable;
+        background-image: url('../assets/img/lairReady/tableOff.png') !important;
+    }
+    .commonBookshelves {
+        width: 7vh;
+        height: 18vh;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        top: 46vh;
+        right: 1vw;
+    }
+    #bookshelves {
+        @extend .commonBookshelves;
+        background-image: url('../assets/img/lairReady/bookshelves.png');
+    }
+
+    #bookshelvesOff{
+        @extend .commonBookshelves;
+        background-image: url('../assets/img/lairReady/bookshelvesOff.png') !important;
+    }
+
+}

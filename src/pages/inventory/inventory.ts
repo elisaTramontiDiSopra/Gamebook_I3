@@ -17,7 +17,7 @@ import { BackBarComponent } from '../../components/back-bar/back-bar';
 export class InventoryPage {
 
   inventory; emptyInventoryText: any;
-  imgUrl: string = "../../assets/img/inventoryReady/";
+  imgUrl: string = "assets/img/inventoryReady/";
   
   acquired: any = []; 
   worn: any = [];

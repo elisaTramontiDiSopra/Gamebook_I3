@@ -23,7 +23,9 @@ html {
       background-color: transparent !important;
   }*/
    
-
+  .spacer {
+      height: 20vh;
+  }
 
   h1 {
       color: map-get($colors, primary);

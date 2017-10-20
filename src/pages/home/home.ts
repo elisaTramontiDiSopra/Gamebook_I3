@@ -22,6 +22,7 @@ export class HomePage {
     //visualizza l'alert per selezionarla
     this.storage.get("language").then((data) => {
       if(data == null) {
+        this.storage.set('language', 'it');
         console.log("scegli una lingua");
         this.navCtrl.push("LanguageAlertPage");
       } else {
