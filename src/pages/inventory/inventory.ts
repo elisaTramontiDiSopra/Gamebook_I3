@@ -66,6 +66,7 @@ export class InventoryPage {
       this.gameData.updateStat(stat, statValue);
     }
     if(skill !== undefined) {
+      console.log( skill + "sett skill");
       this.storage.set(skill, true);
     }
   }
