@@ -29,6 +29,9 @@ page-lair {
         z-index: 99;
         padding: 30vh 10vw;
         color: white;
+        p:first-child {
+          margin: 0;
+        }
     }
 
     .alertNoMoney {

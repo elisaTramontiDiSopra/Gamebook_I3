@@ -37,7 +37,6 @@ export class GameDataProvider {
     this.storage.get("language").then((data) => {
       if(data == null) {
         console.log("scegli una lingua");
-        //this.navCtrl.push("LanguageAlertPage");
       } else {
         switch (data) {
           case 'it':
@@ -82,7 +81,6 @@ export class GameDataProvider {
     this.http.get(this.gameJson).map(res => res.json()).subscribe((data) => {
       this.charDescription = data["shaiChararcter"]["charDescription"];
       this.charLife = data["shaiChararcter"]["charLife"];
-      console.log(this.charLife)
       this.charAttack = data["shaiChararcter"]["charAttack"];
       this.charMoney = data["shaiChararcter"]["charMoney"];
       this.charReputation = data["shaiChararcter"]["charReputation"];
@@ -110,7 +108,6 @@ export class GameDataProvider {
   getLabelsName(){
     this.http.get(this.gameJson).map(res => res.json()).subscribe((data) => {
       this.swimLabel = data["skills"]["swim"];
-      console.log("this.swimLabel "+this.swimLabel);
       this.hideLabel = data["skills"]["hide"];
       this.trackLabel = data["skills"]["track"];
       this.talkLabel = data["skills"]["talk"];
@@ -167,7 +164,6 @@ export class GameDataProvider {
   lifeValue; attackValue; moneyValue; reputationValue: any;
 
   getInitialStats(){
-    console.log("initial stats retrieved");
     Promise.all ([
       this.storage.get('life'),
       this.storage.get('attack'),
@@ -190,7 +186,6 @@ export class GameDataProvider {
         this.updateAttack(value);
         break;
       case 'money':
-        //this.updateMoney(value);
         break;
       case 'reputation':
         console.log("stat = reputation");
@@ -204,7 +199,6 @@ export class GameDataProvider {
     this.storage.get('money').then((data) => {
       if (operation == "+") {
         this.moneyValue = +data + +value;
-        // console.log(this.moneyValue);
         this.storage.set("money", this.moneyValue);
       }
       if (operation == "-") {
@@ -215,10 +209,8 @@ export class GameDataProvider {
   }
 
   updateReputation(value) {
-    this.storage.get('reputation').then((data) => {
-       //console.log("reputation value" +value)       ;
+    this.storage.get('reputation').then((data) => {     ;
        this.reputationValue = +data + +value;
-       //console.log("new reputation value in game data "+this.reputationValue);
        this.storage.set("reputation", this.reputationValue);
       });
   }
@@ -248,10 +240,22 @@ export class GameDataProvider {
   getJsonData(chapter: number){
     this.http.get(this.gameJson).map(res => res.json()).subscribe((data) => {
     this.beforeTextGood = data["story"][chapter]["beforeTextGood"];
+    if (this.beforeTextGood == undefined) {
+      this.beforeTextGood = "";
+    }
     this.beforeTextBad = data["story"][chapter]["beforeTextBad"];
+    if (this.beforeTextBad == undefined) {
+      this.beforeTextBad = "";
+    }
     this.text = data["story"][chapter]["text"];
     this.afterTextGood = data["story"][chapter]["afterTextGood"];
+    if (this.afterTextGood == undefined) {
+      this.afterTextGood = "";
+    }
     this.afterTextBad = data["story"][chapter]["afterTextBad"];
+    if (this.afterTextBad == undefined) {
+      this.afterTextBad = "";
+    }
     this.choice1 = data["story"][chapter]["choice1"];
     this.goTo1 = data["story"][chapter]["goTo1"];
     this.choice2 = data["story"][chapter]["choice2"];
@@ -263,7 +267,6 @@ export class GameDataProvider {
     this.skillAcquired = data["story"][chapter]["skillAcquired"];
     this.chapter = data["story"][chapter]["chapter"];
    });
-     return this.text;
  }
 
 /********************************************************************************* FIGHT FUNCIONS */

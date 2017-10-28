@@ -25,30 +25,37 @@ export class Cap1Page {
   fight: any;
   stats: any = [];
 
-  goToThisChapter: any;
+  goToThisChapter; savedChapter: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public gameData:GameDataProvider, public http: Http) {
+    //se arrivo dalla fight page ho un parametro. Controllo se c'è. Se c'è lo salvo e utilizzo this.chapter come quello, altrimenti chapter =1
     this.goToThisChapter = navParams.get('goToThisChapter');
-    console.log("goToThisChapter "+this.goToThisChapter);
+  }
+
+  ionViewDidLoad() {
+    // se arrivo dalla pagina fight o da load mi viene passato un parametro
+    // per il capitolo da visualizzare e lo salvo come this.chapter
     if (this.goToThisChapter != undefined) {
       this.chapter = this.goToThisChapter
+      this.gameData.getJsonData(this.chapter);
+    // se non ho parametri passati prendo il valore del capitolo salvato.
+    // la pagina start salva chapter = 0, quindi se chapter = 0 io sono all'inizio
+    // e lo salvo come this.chapter. Se non ho capitolo salvato allora
+    // this.chapter = 1
     } else {
-      this.chapter = 1;
-    };
-  }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Cap1Page');
-    this.gameData.getJsonData(this.chapter);/*.subscribe((text) => {
-      console.log("done retrieving data");
-      console.log(text);
-      //this.gameData.text = this.gameData.text.replace('\n', '<br/>');
-    });*/
-
-    this.storage.set('chapter', this.chapter);
-    console.log("this.chapter " + this.chapter);                //SAVE CHAPTER VALUE
+      this.storage.get('chapter').then((savedChapter) => {
+        if (savedChapter != 0) {
+          console.log("SAVED CHAPTER = "+savedChapter)
+          this.chapter = this.savedChapter;
+        } else {
+          this.chapter = 1;
+        };
+      }).then(() => {
+        this.gameData.getJsonData(this.chapter);
+      });
+    }
   }
 
-  /* */
   statsChangeSave(extra) {
     for (var i: number = 0; i < extra.lenght; i = i + 2) {
       var label = extra[i];

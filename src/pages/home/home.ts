@@ -10,13 +10,22 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
+
   currentPage = "home";
+  currentChapter: any;
+  gameStarted: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public http: Http, public gameData: GameDataProvider) {
-    console.log("START HOME.TS");
     //this.storage.set('language', 'it');
-    this.setInventoryAsNotAcquired();
+    this.storage.get("chapter").then((data) => {
+      if(data == undefined || data < 1) {
+        this.gameStarted = false
+      } else {
+        this.gameStarted = true;
+      }
+    });
   }
 
   ionViewDidLoad() {
@@ -34,11 +43,28 @@ export class HomePage {
     });
   }
 
+  // arrays of elements to set to zero or false at the beginning of the game
+  toZero = [
+    'chapter',                                  //CHAPTER
+    'life', 'attack', 'money', 'reputation',    //BASIC STATS
+    'swim', 'track', 'hide', 'talk',            //SKILLS
+    ]
+
+  toFalse = [
+    'armor', 'treasure', 'table', 'bookshelves', 'bed', 'wardrobe'    //LAIR ELEMENTS
+  ]
+
+  setEverythingToFalse(){
+    this.toFalse.forEach(item => {
+      this.storage.set(item, false);
+    });
+  }
+
+
   setEverythingToZero(){
     //GAME
     this.storage.set('chapter', 0)     //CHAPTER
     //CHARACTER
-    this.storage.set('name', "");       //NAME
     this.storage.set('life', 0);        //LIFE
     this.storage.set('attack', 0);      //ATTACK
     this.storage.set('money', 0);       //MONEY
@@ -49,8 +75,9 @@ export class HomePage {
     this.storage.set('track', 0);       //TRACK
     this.storage.set('hide', 0);        //HIDE
     this.storage.set('talk', 0);        //TALK
+
     //LAIR
-    this.storage.set('table', 0);       //TABLE
+    this.setEverythingToFalse();
 
     //GAME VARIABLES (necklace, biscuit)
     this.storage.set('acquiredcloak', true);
@@ -61,39 +88,22 @@ export class HomePage {
     this.storage.set('acquiredimmortalpotion', true);
     var test = this.storage.get('acquirednecklace');
 
-    //set all liar objects to false
-    this.storage.set("armor", false);
-    this.storage.set("treasure", false);
-    this.storage.set("table", false);
-    this.storage.set("bookshelves", false);
-    this.storage.set("bed", false);
-    this.storage.set("wardrobe", false);
+    //SET INVENTORY TO NOT ACQUIRED
+    //this.setInventoryAsNotAcquired();
 
-    console.log('acquirednecklace'+test);
-    return test
+  return test
 }
 
 //SET THE INVENTORY ITEMS AS NOT AQUIRED
 setInventoryAsNotAcquired(){
   this.http.get('assets/json/inventory.json').map(res => res.json()).subscribe((data) => {
-    console.log(data);
-
     //ACQUIRED + NAME ITEM
     for (let i = 0; i < data.length; i++) {
       this.storage.set("acquired"+data[i]['id'], false).then((val) =>{
-        console.log("acquired"+data[i]['id'] + " done!");
+        //console.log("acquired"+data[i]['id'] + " done!");
         //this.acquired.push(val);
       })
     }
-
-    //CHECK ACQUIRED IS ALL SET TO FALSE
-    for (let i = 0; i < data.length; i++) {
-      this.storage.get("acquired"+data[i]['id']).then((val) =>{
-        console.log("acquired"+data[i]['id'] + " " + val);
-        //this.acquired.push(val);
-      })
-    }
-
 
 
 
@@ -122,37 +132,39 @@ setInventoryAsNotAcquired(){
 
 
 
- start() {
- this.setEverythingToZero().then(() => {
-    console.log("Everything is set to 0");
-    this.navCtrl.push("ChooseCharacterPage");
-  });
- }
+  start() {
+  this.setEverythingToZero().then(() => {
+      console.log("Everything is set to 0");
+      this.navCtrl.push("ChooseCharacterPage");
+    });
+  }
 
+  load() {
+  this.storage.get('chapter').then((data) => {
+    this.currentChapter = data;
+    }).then(() => {
+      console.log(this.currentChapter);
+      this.navCtrl.push("Cap1Page", {
+        goToThisChapter: this.currentChapter
+      });
+    });
+  }
 
-
-
-
-
-
-
-goToFightPage(enemyAttackValue: number, enemyLifeValue: number, enemySrc: string){
-     Promise.all([
-     this.storage.get('life'),
-     this.storage.get('attack'),
-     ]).then((value) => {
-       console.log(this.storage.get('life'))
-       this.navCtrl.push("FightPage",{
-         characterLife: value[0],
-         characterAttack: value[1],
-         enemyAttack: enemyAttackValue,
-         enemyLife: enemyLifeValue,
-         enemySrc: enemySrc,
-       });
-     });
-}
-
-
+  goToFightPage(enemyAttackValue: number, enemyLifeValue: number, enemySrc: string){
+      Promise.all([
+      this.storage.get('life'),
+      this.storage.get('attack'),
+      ]).then((value) => {
+        console.log(this.storage.get('life'))
+        this.navCtrl.push("FightPage",{
+          characterLife: value[0],
+          characterAttack: value[1],
+          enemyAttack: enemyAttackValue,
+          enemyLife: enemyLifeValue,
+          enemySrc: enemySrc,
+        });
+      });
+  }
 
   goToPage(namePage){
     this.navCtrl.push(namePage);
