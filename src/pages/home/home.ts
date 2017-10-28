@@ -11,6 +11,7 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  currentPage = "home";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public http: Http, public gameData: GameDataProvider) {
     console.log("START HOME.TS");
@@ -21,7 +22,7 @@ export class HomePage {
   ionViewDidLoad() {
     //all'avvio controlla se c'è una lingua impostata e se non c'è
     //visualizza l'alert per selezionarla
- 
+
     this.storage.get("language").then((data) => {
       if(data == null) {
         console.log("scegli una lingua");
@@ -81,7 +82,7 @@ setInventoryAsNotAcquired(){
     for (let i = 0; i < data.length; i++) {
       this.storage.set("acquired"+data[i]['id'], false).then((val) =>{
         console.log("acquired"+data[i]['id'] + " done!");
-        //this.acquired.push(val); 
+        //this.acquired.push(val);
       })
     }
 
@@ -89,14 +90,14 @@ setInventoryAsNotAcquired(){
     for (let i = 0; i < data.length; i++) {
       this.storage.get("acquired"+data[i]['id']).then((val) =>{
         console.log("acquired"+data[i]['id'] + " " + val);
-        //this.acquired.push(val); 
+        //this.acquired.push(val);
       })
     }
 
 
 
 
-    //this.inventory = data;    
+    //this.inventory = data;
     /*
     console.log(this.inventory[0]['id']);
     for (let i = 0; i < this.inventory.length; i++) {
@@ -112,7 +113,7 @@ setInventoryAsNotAcquired(){
       });
     }*/
   });
-} 
+}
 
 
 

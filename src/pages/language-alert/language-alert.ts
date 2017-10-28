@@ -10,6 +10,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'language-alert.html',
 })
 export class LanguageAlertPage {
+  currentPage = "language";
 
   it = ["Scegli la lingua", "Sei sicuro di voler leggere la storia in italiano?", "Sicuro"];
   en = ["Choose your language","Are you sure you want to read the story in english?", "I'm sure"];
@@ -43,7 +44,7 @@ export class LanguageAlertPage {
   goBack(){
     this.navCtrl.pop();
   }
-  
+
   goHome(){
     this.navCtrl.push(HomePage);
   }

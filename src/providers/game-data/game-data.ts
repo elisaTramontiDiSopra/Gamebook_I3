@@ -16,7 +16,7 @@ export class GameDataProvider {
     console.log('Hello GameDataProvider Provider');
   }
 
-  
+
   /* LANGUAGE */
   game_it = 'assets/json/gameData.json';
   inventory_it = 'assets/json/inventory.json';
@@ -158,13 +158,13 @@ export class GameDataProvider {
       this.talk = data["skills"]["talk"];
       this.talkText = data["skills"]["talkText"];
       this.chooseSkillText = data["skills"]["chooseSkillText"];
-      this.chooseSkillTitle = data["skills"]["chooseSkillTitle"];  
-      this.chooseSkillButton = data["skills"]["chooseSkillButton"];   
+      this.chooseSkillTitle = data["skills"]["chooseSkillTitle"];
+      this.chooseSkillButton = data["skills"]["chooseSkillButton"];
     });
   }
 
   /********************************************************************************* INVENTORY FUNCIONS */
-  lifeValue; attackValue; moneyValue; reputationValue: any; 
+  lifeValue; attackValue; moneyValue; reputationValue: any;
 
   getInitialStats(){
     console.log("initial stats retrieved");
@@ -191,12 +191,12 @@ export class GameDataProvider {
         break;
       case 'money':
         //this.updateMoney(value);
-        break; 
+        break;
       case 'reputation':
         console.log("stat = reputation");
         console.log ("value to add "+value);
         this.updateReputation(value);
-        break; 
+        break;
       }
   }
 
@@ -215,7 +215,7 @@ export class GameDataProvider {
   }
 
   updateReputation(value) {
-    this.storage.get('reputation').then((data) => {  
+    this.storage.get('reputation').then((data) => {
        //console.log("reputation value" +value)       ;
        this.reputationValue = +data + +value;
        //console.log("new reputation value in game data "+this.reputationValue);
@@ -223,22 +223,22 @@ export class GameDataProvider {
       });
   }
   updateLife(value) {
-    this.storage.get('life').then((data) => {         
+    this.storage.get('life').then((data) => {
        this.lifeValue = +data + +value;
        this.storage.set("life", this.lifeValue);
       });
   }
   updateAttack(value) {
-    this.storage.get('attack').then((data) => {         
+    this.storage.get('attack').then((data) => {
        this.attackValue = +data + +value;
        this.storage.set("attack", this.attackValue);
       });
   }
 
-  
+
   /********************************************************************************* CAP1 FUNCIONS */
-  
-  text; beforeTextGood; beforeTextBad; afterTextGood; afterTextBad: string; 
+
+  text; beforeTextGood; beforeTextBad; afterTextGood; afterTextBad: string;
   choice1; choice2; choice3: string;
   goTo1; goTo2; goTo3: number;
   fight: any;
@@ -262,8 +262,8 @@ export class GameDataProvider {
     this.itemAcquired = data["story"][chapter]["itemAcquired"];
     this.skillAcquired = data["story"][chapter]["skillAcquired"];
     this.chapter = data["story"][chapter]["chapter"];
-    return data;
    });
+     return this.text;
  }
 
 /********************************************************************************* FIGHT FUNCIONS */
@@ -287,7 +287,7 @@ export class GameDataProvider {
 
 armor; treasure; bed; wardrobe; table; bookshelves; buyText; closeText; noMoneyText; noMoneyButtonText: any;
 
-getLairData(){ 
+getLairData(){
   this.http.get(this.gameJson).map(res => res.json()["lair"]).subscribe((data) => {
     console.log(data);
     this.buyText = data["buyText"];

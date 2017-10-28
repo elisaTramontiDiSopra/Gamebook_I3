@@ -1,5 +1,5 @@
 <ion-content padding>
-  <back-bar></back-bar>
+  <back-bar [currentPage] = 'this.currentPage'></back-bar>
   <p class="title">{{this.gameData.inventoryTitleLabel}}</p>
   <div *ngIf="acquired.lenght == 0">
     <p class="title">{{this.gameData.emptyInventoryText}}</p>

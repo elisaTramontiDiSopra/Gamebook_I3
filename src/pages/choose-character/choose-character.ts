@@ -16,6 +16,7 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   templateUrl: 'choose-character.html',
 })
 export class ChooseCharacterPage {
+  currentPage = "chooseCharacter";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public gameData: GameDataProvider) {
     this.gameData.getCharachtersStats();
@@ -30,12 +31,12 @@ export class ChooseCharacterPage {
     console.log('setStats function');
     var resVal: any = 0;
     this.storage.set('life', this.gameData.charLife);   //LIFE
-    this.storage.set('attack', this.gameData.charAttack);   // ATTACK 
-    this.storage.set('reputation', this.gameData.charReputation);   //REPUTATION 
+    this.storage.set('attack', this.gameData.charAttack);   // ATTACK
+    this.storage.set('reputation', this.gameData.charReputation);   //REPUTATION
     this.storage.set('money', this.gameData.charMoney);   //MONEY
     return resVal;
   }
-  
+
   chooseChar(){
     this.setStats();
     this.navCtrl.push("ChooseSkillPage");

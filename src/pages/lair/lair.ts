@@ -10,6 +10,8 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
 })
 export class LairPage {
 
+  currentPage = "lair";
+
   armorValue; treasureValue; bedValue; wardrobeValue; tableValue; bookshelvesValue: any;
 
   alertValue = false;
@@ -85,7 +87,7 @@ export class LairPage {
     //console.log("this.statValue1 "+this.statValue1)
     this.stat2 = this.gameData[name]["stat2"];
     //console.log("this.stat2 "+this.stat2)
-    this.statValue2 = this.gameData[name]["statValue2"]; 
+    this.statValue2 = this.gameData[name]["statValue2"];
     //console.log("this.statValue2 "+this.statValue2)
     this.objectName = name;
     this.checkIfIHaveEnoughMoney(this.price);
@@ -118,7 +120,7 @@ export class LairPage {
         break;
       case 'bed':
         this.bedValue = true;
-        break; 
+        break;
       case 'wardrobe':
         this.wardrobeValue = true;
         break;
@@ -127,7 +129,7 @@ export class LairPage {
         break;
       case 'bookshelves':
         this.bookshelvesValue = true;
-        break; 
+        break;
       }
     this.storage.set(object, true).then(() => {
       console.log("val1 "+value1)

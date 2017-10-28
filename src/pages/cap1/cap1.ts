@@ -15,15 +15,16 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   templateUrl: 'cap1.html',
 })
 export class Cap1Page {
+  currentPage = "cap1";
 
-  chapter: number;  
-  
+  chapter: number;
+
   text: string;
   choice1; choice2; choice3: string;
   goTo1; goTo2; goTo3: number;
-  fight: any;  
-  stats: any = []; 
-  
+  fight: any;
+  stats: any = [];
+
   goToThisChapter: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public gameData:GameDataProvider, public http: Http) {
@@ -33,12 +34,17 @@ export class Cap1Page {
       this.chapter = this.goToThisChapter
     } else {
       this.chapter = 1;
-    }
+    };
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Cap1Page');
-    this.gameData.getJsonData(this.chapter);
-    this.storage.set('chapter', this.chapter);  
+    this.gameData.getJsonData(this.chapter);/*.subscribe((text) => {
+      console.log("done retrieving data");
+      console.log(text);
+      //this.gameData.text = this.gameData.text.replace('\n', '<br/>');
+    });*/
+
+    this.storage.set('chapter', this.chapter);
     console.log("this.chapter " + this.chapter);                //SAVE CHAPTER VALUE
   }
 

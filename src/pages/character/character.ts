@@ -11,9 +11,10 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   templateUrl: 'character.html',
 })
 export class CharacterPage {
+  currentPage = "character";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public gameData:GameDataProvider) {}
-  
+
     src: string = "assets/img/charPageReady/";
 
     ionViewDidLoad() {
@@ -21,13 +22,13 @@ export class CharacterPage {
       this.gameData.getLabelsName();
       this.gameData.getSkillsStats();
     }
-  
+
     goToInventory() {
       this.navCtrl.push("InventoryPage");
     }
-  
+
     goToLair() {
       this.navCtrl.push("LairPage");
     }
-  
+
   }

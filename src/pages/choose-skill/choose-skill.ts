@@ -10,6 +10,7 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   templateUrl: 'choose-skill.html',
 })
 export class ChooseSkillPage {
+  currentPage = "chooseSkill";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public gameData: GameDataProvider) {
     this.gameData.getSkillChoices();

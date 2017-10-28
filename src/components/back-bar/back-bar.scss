@@ -1,11 +1,17 @@
 back-bar {
-    .topRightBack{
-        background: url("../assets/img/backBar/back.png");
-        background-size: cover;
-        width: 17vw;
-        height: 20vw;
-        position: absolute;
-        top: 0;
-        right: 5vw;
-    }
+  .topRight{
+    //background: url("../assets/img/backBar/back.png");
+    background-size: cover;
+    width: 17vw;
+    height: 20vw;
+    position: absolute;
+    top: 0;
+    right: 5vw;
+  }
+  .back {
+    background: url("../assets/img/backBar/backbook.png");
+  }
+  .back {
+    background: url("../assets/img/backBar/back.png");
+  }
 }

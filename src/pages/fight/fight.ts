@@ -10,6 +10,7 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   templateUrl: 'fight.html',
 })
 export class FightPage {
+  currentPage = "fight";
 
   //PARAMS
   public characterLife: any;
@@ -34,7 +35,7 @@ export class FightPage {
     this.characterLife = this.gameData.lifeValue;
     this.enemyName = this.fightParams[0];
     this.enemyLife = this.fightParams[1];
-    this.enemyAttack = this.fightParams[2];    
+    this.enemyAttack = this.fightParams[2];
     this.winChapter = this.fightParams[3];
     this.loseChapter = this.fightParams[4];
     this.enemySrc = this.enemySrc = "../assets/img/charReady/" + this.enemyName +'.png'
@@ -78,16 +79,16 @@ export class FightPage {
     //reset messaggi
     this.attackMessage = "";
     this.damageMessage = "";
-    
+
     this.charDiceOne = this.throwDice();
-    this.charDiceTwo = this.throwDice();  
+    this.charDiceTwo = this.throwDice();
 
     var characterDices: number = +this.charDiceOne + +this.charDiceTwo;
     var characterFightAttack: number = characterDices + this.gameData.attackValue;
     console.log("characterFightAttack: "+characterFightAttack);
 
     this.enemyDiceOne = this.throwDice();
-    this.enemyDiceTwo = this.throwDice(); 
+    this.enemyDiceTwo = this.throwDice();
     var enemyDices: number = +this.enemyDiceOne + +this.enemyDiceTwo;
 
     var enemyFightAttack: number = enemyDices + this.enemyAttack;
@@ -95,7 +96,7 @@ export class FightPage {
     //this.gameDatafightMsg sono le scritte del messaggio
     this.message = this.gameData.fightMsg1 + characterFightAttack + this.gameData.fightMsg2 + enemyFightAttack;
     console.log(this.message);
-    
+
     if (characterFightAttack > enemyFightAttack) {
       //console.log('attacca');
         var damage: number = characterFightAttack - enemyFightAttack;
@@ -124,6 +125,6 @@ export class FightPage {
         console.log("pareggio");
       }
   }
-  
+
 
 }

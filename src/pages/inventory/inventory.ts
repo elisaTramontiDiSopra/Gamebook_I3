@@ -15,35 +15,36 @@ import { BackBarComponent } from '../../components/back-bar/back-bar';
 })
 
 export class InventoryPage {
+  currentPage = "inventory";
 
   inventory; emptyInventoryText: any;
   imgUrl: string = "assets/img/inventoryReady/";
-  
-  acquired: any = []; 
+
+  acquired: any = [];
   worn: any = [];
- 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public gameData:GameDataProvider, public http: Http, public storage:Storage) {
-    this.gameData.getLabelsName();    
+    this.gameData.getLabelsName();
     this.http.get('assets/json/inventory.json').map(res => res.json()).subscribe((data) => {
-      console.log(data);    
+      console.log(data);
       this.inventory = data;
       for (let i = 0; i < this.inventory.length; i++) {
         //console.log(data[i]['id']);
         this.storage.get("acquired"+this.inventory[i]['id']).then((val) =>{
           console.log("acquired"+this.inventory[i]['id'] + " " + val);
-          this.acquired.push(val); 
+          this.acquired.push(val);
           console.log(this.acquired);
         })
         this.storage.get("worn"+data[i]['id']).then((val) =>{
           console.log("worn"+data[i]['id'] + " " + val);
-          this.worn[i] = val; 
+          this.worn[i] = val;
         })
       }
     });
-  } 
+  }
 
   ionViewDidLoad() {
-    this.gameData.getLabelsName();  
+    this.gameData.getLabelsName();
     console.log("LOADED");
   }
 
@@ -82,7 +83,7 @@ export class InventoryPage {
       this.gameData.updateStat(stat, statValue);
     }
     if(skill !== undefined) {
-      this.storage.set(skill, true);
+      this.storage.set(skill, false);
     }
   }
 
