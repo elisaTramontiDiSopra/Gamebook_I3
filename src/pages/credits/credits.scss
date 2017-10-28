@@ -1,0 +1,19 @@
+page-credits {
+  background-image: url('../assets/img/creditsReady/bgCredits.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+
+  .titleCredits {
+    @extend .title;
+    //text-align: left;
+    color: map-get($colors, primary);
+    margin: 8vh 0 1vh 0 !important;
+  }
+  p {
+    text-align: center;
+  }
+  .person{
+    margin: 0 0 5vh 0 !important;
+  }
+
+}

@@ -307,5 +307,23 @@ getLairData(){
 }
 
 
+/********************************************************************************* CREDITS FUNCIONS */
+
+idea; idea_people; story; story_people; art; art_people: string;
+
+getCreditsLabels(){
+  console.log("GET CREDIT LABEL FUNCTION COME TO TAKE AWAY ** ")
+
+  this.http.get(this.gameJson).map(res => res.json().credits).subscribe((data) => {
+    this.idea = data["idea"];
+    this.idea_people = data["idea_people"];
+    this.story = data["story"];
+    this.story_people = data["story_people"];
+    this.art = data["art"];
+    this.art_people = data["art_people"];
+  });
+}
+
+
 
 }

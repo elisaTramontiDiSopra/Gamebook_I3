@@ -1,10 +1,10 @@
 page-character {
-    
+
         .characterPageImg{
             width: 100%;
             height: 55vh;
         }
-    
+
         .columns {
             display: flex;
             height: 27vh;
@@ -17,9 +17,9 @@ page-character {
             display: flex;
             flex-direction: column;
             line-height: 1.5;
-    
+
         }
-    
+
         .label{
             width: 45vw;
             color: map-get($colors, third);
@@ -36,7 +36,7 @@ page-character {
             flex-direction: column;
             justify-content: center;
             align-content: center;
-            color: map-get($colors, forth);
+            color: map-get($colors, primary);
             font-weight: bold;
             text-align: center;
             margin-right: 5vw;
@@ -44,20 +44,20 @@ page-character {
                 margin: 0 !important;
             }
         }
-    
+
         .stats p:first-child {
             margin-top: 0 !important;
         }
-    
+
         .extra {
             width: 40vw;
             height: 40vh;
             display: flex;
             flex-direction: column;
         }
-     
-    
-    
+
+
+
         .inventary{
             background: url("../assets/img/charPageReady/inventary.png");
             -webkit-background-size: cover;
@@ -74,16 +74,17 @@ page-character {
             width: 20vw;
             height: 20vw;
         }
-    
+
         .skillsDisplay{
             display: flex;
             justify-content: center;
             height: 10vh;
+            margin-top: 3vh;
         }
         .skill{
             width: 20vw;
         }
-    
+
         .smallLabel {
             font-family: escargot;
             margin: 0 !important;
@@ -98,4 +99,3 @@ page-character {
             color: map-get($colors, fourth) !important;
         }
     }
-    
