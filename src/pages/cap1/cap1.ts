@@ -15,16 +15,14 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
   templateUrl: 'cap1.html',
 })
 export class Cap1Page {
+
   currentPage = "cap1";
-
   chapter: number;
-
   text: string;
   choice1; choice2; choice3: string;
   goTo1; goTo2; goTo3: number;
   fight: any;
   stats: any = [];
-
   goToThisChapter; savedChapter: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public gameData:GameDataProvider, public http: Http) {

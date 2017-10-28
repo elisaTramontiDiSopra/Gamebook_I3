@@ -4,9 +4,9 @@
     font-weight: normal;
     font-style: normal;
 }
-  
+
 html {
-       background: url('../assets/img/pageReady/bg.jpg') no-repeat center center fixed; 
+       background: url('../assets/img/pageReady/bg.jpg') no-repeat center center fixed;
        -webkit-background-size: cover;
        -moz-background-size: cover;
        background-size: cover;
@@ -22,7 +22,7 @@ html {
   ion-app {
       background-color: transparent !important;
   }*/
-   
+
   .spacer {
       height: 20vh;
   }
@@ -32,7 +32,7 @@ html {
       font-size: 7vw;
       font-family:escargot;
       text-align: center;
-  }   
+  }
   h2 {
       color: map-get($colors, secondary);
       font-size: 4vw;
@@ -40,7 +40,7 @@ html {
       font-family:escargot;
       text-align: center;
   }
-  
+
   .title{
       color: map-get($colors, third);
       font-size: 7vw;
@@ -59,23 +59,23 @@ html {
     display: flex;
       flex-direction: row;
   }
-  
+
   .content-md {
       background-color: transparent !important;
   }
-  
+
   .primaryColor {
       color: map-get($colors, primary);
   }
   .thirdColor{
       color: map-get($colors, third);
   }
-  
+
   .scroll-content p:first-child {
       margin-top: 8vh;
   }
-  
-  
+
+
   .statsText{
       font-family: Escargot;
       font-size: 140%;
@@ -86,15 +86,15 @@ html {
   .bold {
       font-weight: bold;
   }
-  
-  
-  
+
+
+
   /* CHAPTER PAGES *************/
   .textChapter p:first-child {
       margin-top:22vw;                    //TOP MENU 20vw
   }
-  
-  /* BACK BUTTON ************/
+
+  /* BACK BUTTON ************
       .topRightBack{
           background: url("../assets/img/backBar/back.png");
           background-size: cover;
@@ -103,8 +103,8 @@ html {
           position: absolute;
           top: 0;
           right: 5vw;
-      }
-  
+      }*/
+
 
 
 

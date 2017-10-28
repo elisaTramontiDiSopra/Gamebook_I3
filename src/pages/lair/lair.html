@@ -26,7 +26,7 @@
 
     <div *ngIf="alertValue" class="alert" >
         <p>{{this.alertText}}</p>
-        <div class="greenButton" (tap)="buy(this.price, this.stat1, this.statValue1, this.stat2, this.statValue2, this.objectName)">{{this.gameData.buyText}}</div>
+        <div class="secondaryButton " (tap)="buy(this.price, this.stat1, this.statValue1, this.stat2, this.statValue2, this.objectName)">{{this.gameData.buyText}}</div>
         <div class="button" (tap)="dismissAlert()">{{this.gameData.closeText}}</div>
     </div>
     <div *ngIf="noMoneyAlert" class="alertNoMoney" >
