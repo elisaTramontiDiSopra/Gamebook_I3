@@ -234,7 +234,7 @@ export class GameDataProvider {
   choice1; choice2; choice3: string;
   goTo1; goTo2; goTo3: number;
   fight: any;
-  itemAcquired; skillAcquired; statAcquired: any;
+  skillRequired; itemRequired; skillAcquired; itemAcquired; statAcquired: any;
   chapter: number;
 
   getJsonData(chapter: number){
@@ -263,8 +263,10 @@ export class GameDataProvider {
     this.choice3 = data["story"][chapter]["choice3"];
     this.goTo3 = data["story"][chapter]["goTo3"];
     this.fight = data["story"][chapter]["fight"];
-    this.itemAcquired = data["story"][chapter]["itemAcquired"];
+    this.skillRequired = data["story"][chapter]["skillRequired"];
     this.skillAcquired = data["story"][chapter]["skillAcquired"];
+    this.itemAcquired = data["story"][chapter]["itemAcquired"];
+    this.itemRequired = data["story"][chapter]["itemRequired"];
     this.chapter = data["story"][chapter]["chapter"];
    });
  }

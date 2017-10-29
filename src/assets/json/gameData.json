@@ -65,9 +65,8 @@
                 "goTo2" : "Fight",
                 "fight": ["wolf", 15, 3, 5, 101],
                 "choice3":"Con questa scelta devo avere la skill nuoto e vado al cap 3, senza skill nuoto vado al 4",
-                "choice3_skill": "swim",
-                "goTo3_choice3_skill_ok": 3,
-                "goTo3_choice3_skill_no": 4
+                "goTo3" : "",
+                "skillRequired": [3, "swim", 3, 4]
         },
         "2": {  "chapter": 2,
                 "beforeTextGood": "",
