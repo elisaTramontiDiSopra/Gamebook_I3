@@ -9,7 +9,7 @@
       <div *ngIf="gameStarted" class="homeButton fixedRight" (tap)='load()'>Load</div>
       <div *ngIf="!gameStarted" class="homeButtonTransp fixedRight">Load</div>
 
-      <div class="homeButton fixedRight" (tap)='goToPage(rulesPage)'>{{this.gameData.rulesButton}}</div>
+      <div class="homeButton fixedRight" (tap)='goToPage("RulesPage")'>{{this.gameData.rulesButton}}</div>
       <div class="homeButton fixedRight" (tap)='goToPage("LanguageAlertPage")'>{{this.gameData.settingsButton}}</div>
       <div class="homeButton fixedRight" (tap)='goToPage("InventoryPage")'>Inventory</div>
   </ion-fab>
