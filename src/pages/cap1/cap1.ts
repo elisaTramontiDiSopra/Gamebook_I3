@@ -24,6 +24,7 @@ export class Cap1Page {
   fight: any;
   stats: any = [];
   goToThisChapter; savedChapter: any;
+  paragraphs = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage, public gameData:GameDataProvider, public http: Http) {
     //se arrivo dalla fight page ho un parametro. Controllo se c'è. Se c'è lo salvo e utilizzo this.chapter come quello, altrimenti chapter =1
@@ -50,8 +51,13 @@ export class Cap1Page {
         };
       }).then(() => {
         this.gameData.getJsonData(this.chapter);
+        console.log(this.gameData.text);
       });
     }
+  }
+
+  fixParagraphs(text) {
+    this.paragraphs = text.split("\n");
   }
 
   statsChangeSave(extra) {
@@ -65,5 +71,10 @@ export class Cap1Page {
   goToPage(test: any){
       this.navCtrl.push(test);
   }
+
+
+
+
+
 
 }

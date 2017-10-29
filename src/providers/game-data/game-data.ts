@@ -263,6 +263,7 @@ export class GameDataProvider {
     this.itemAcquired = data["story"][chapter]["itemAcquired"];
     this.itemRequired = data["story"][chapter]["itemRequired"];
     this.chapter = data["story"][chapter]["chapter"];
+    return this.text;
    });
  }
 
