@@ -2,7 +2,10 @@
 <top-bar [chapNum]="this.gameData.chapter" [currentPage]='this.currentPage'></top-bar>
 <ion-content padding class="textChapter">
     <p><span class="good">{{this.gameData.beforeTextGood}}</span><span class="bad">{{this.gameData.beforeTextBad}}</span></p>
-    <p>{{this.gameData.text}}</p>
+    <div class="testo">
+      <p *ngFor="let paragraph of this.gameData.text">{{paragraph}}</p>
+    </div>
+    <!-- <p>{{this.gameData.text}}</p>-->
     <p><span class="good">{{this.gameData.afterTextGood}}</span><span class="bad">{{this.gameData.afterTextBad}}</span></p>
     <choices [chapNum]='chapter'
              [choice1]='this.gameData.choice1'
@@ -16,6 +19,7 @@
              [itemAcquired]='this.gameData.itemAcquired'
              [skillAcquired]='this.gameData.skillAcquired'
              [fightParams]='this.gameData.fight'></choices>
+
   </ion-content>
 
 <bottom-bar></bottom-bar>

@@ -242,7 +242,7 @@ export class GameDataProvider {
     if (this.beforeTextBad == undefined) {
       this.beforeTextBad = "";
     }
-    this.text = data["story"][chapter]["text"];
+    this.text = data["story"][chapter]["text"].split("||");
     this.afterTextGood = data["story"][chapter]["afterTextGood"];
     if (this.afterTextGood == undefined) {
       this.afterTextGood = "";

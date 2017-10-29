@@ -57,7 +57,7 @@ export class Cap1Page {
   }
 
   fixParagraphs(text) {
-    this.paragraphs = text.split("\n");
+    this.paragraphs = text.split("||");
   }
 
   statsChangeSave(extra) {
