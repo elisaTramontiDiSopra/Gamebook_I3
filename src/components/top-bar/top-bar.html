@@ -1,5 +1,29 @@
-<div class="chapterHeader">
+<!-- <div class="chapterHeader">
     <div class="settings"></div>
     <p class="thirdColor">Capitolo <span class="primaryColor">{{this.chapNum}}</span></p>
     <div (click)='goToCharacterPage()' class="topRightMenu"></div>
   </div>
+-->
+
+<div [ngSwitch]="currentPage">
+
+  <div *ngSwitchCase="'inventory'" class="chapterHeader">
+    <div (tap)='backTo("CharacterPage")' class="back"></div>
+    <p class="title thirdColor">{{this.gameData.inventoryTitle}}</p>
+  </div>
+
+  <!--<div (tap)='backTo("CharacterPage")' *ngSwitchCase="'inventory'" class="back"></div>-->
+
+  <div (tap)='backTo("Cap1Page")' *ngSwitchCase="'character'" class="book"></div>
+
+  <div *ngSwitchCase="'cap1'" class="chapterHeader">
+    <div (tap)='backTo("CharacterPage")' class="char"></div>
+    <p class="title thirdColor">{{this.gameData.chapterTextTitle}} <span class="primaryColor">{{this.chapNum}}</span></p>
+  </div>
+
+  <div *ngSwitchCase="'lair'" class="chapterHeader">
+      <div (tap)='backTo("CharacterPage")' class="back"></div>
+      <p class="title thirdColor">{{this.gameData.lairTitle}}</p>
+    </div>
+
+</div>

@@ -20,7 +20,10 @@
                         "liveAgainText": "Usa la pozione dell'immortalità"
                  },
                  "emptyInventoryText": "Il tuo inventario è vuoto",
-                 "inventoryTitleLabel": "Inventario"
+                 "inventoryTitleLabel": "Inventario",
+                 "chapterTextTitle": "Capitolo",
+                 "lairTitle": "La tana",
+                 "inventoryTitle": "Inventario"
     },
     "shaiChararcter":{
         "charDescription": "Shai è una giovane umana",
@@ -32,7 +35,7 @@
         },
     "skills":{
             "swim": "nuotare",
-            "swimText": "Saper nuotare ti permetterà di attraversare fiumi anche in mancanza di ponti",
+            "swimText": "Saper nuotare è un'abilità che potrebbe rivelarsi utile e ti permetterà, ad esempio, di attraversare fiumi anche in mancanza di ponti",
             "hide": "mimetismo",
             "hideText": "Mimetizzandoti tra la folla o nei boschi potrai passare inoservata ed evitare molti guai",
             "track": "seguire tracce",

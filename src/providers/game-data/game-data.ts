@@ -3,12 +3,6 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 
-/*
-  Generated class for the GameDataProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class GameDataProvider {
 
@@ -236,6 +230,7 @@ export class GameDataProvider {
   fight: any;
   skillRequired; itemRequired; skillAcquired; itemAcquired; statAcquired: any;
   chapter: number;
+  chapterTextTitle; lairTitle; inventoryTitle: string;
 
   getJsonData(chapter: number){
     this.http.get(this.gameJson).map(res => res.json()).subscribe((data) => {
@@ -270,6 +265,14 @@ export class GameDataProvider {
     this.chapter = data["story"][chapter]["chapter"];
    });
  }
+
+ getChapterTitleName() {
+  this.http.get(this.gameJson).map(res => res.json().labels).subscribe((data) => {
+    this.chapterTextTitle = data["chapterTextTitle"];
+    this.lairTitle = data["lairTitle"];
+    this.inventoryTitle = data["inventoryTitle"];
+    });
+  }
 
 /********************************************************************************* FIGHT FUNCIONS */
 

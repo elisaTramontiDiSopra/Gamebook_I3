@@ -10,6 +10,7 @@ export class BackBarComponent {
 
   @Input() currentPage: any;
   backImg; bookImg: boolean;
+  testBol = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -24,17 +25,6 @@ export class BackBarComponent {
 
   checkPage(){
     console.log("IVDL check currentPage "+this.currentPage);
-    if (this.currentPage == "inventory") {
-      this.backImg = true;
-      this.bookImg = false;
-    } else if (this.currentPage == "character") {
-      this.backImg = false;
-      this.bookImg = true;
-    } else {
-      console.log('clicked back');
-      this.backImg = false;
-      this.bookImg = true;
-    }
   }
 
 

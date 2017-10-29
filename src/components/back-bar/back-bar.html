@@ -1,2 +1,7 @@
-<div *ngIf="bookImg" (tap)='back("Cap1Page")' class="book">{{currentPage}}</div>
-<div *ngIf="backImg" (tap)='popBack()' class="back"></div>
+<!--<div *ngIf="bookImg" (tap)='back("Cap1Page")' class="book">{{currentPage}}</div>
+<div *ngIf="backImg" (tap)='popBack()' class="back"></div>-->
+
+<div [ngSwitch]="currentPage">
+  <div *ngSwitchCase="'inventory'" class="back"></div>
+  <div *ngSwitchCase="'character'" class="book"></div>
+</div>

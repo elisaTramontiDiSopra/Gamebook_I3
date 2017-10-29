@@ -9,9 +9,9 @@ top-bar {
         position: absolute;
         z-index: 99;
         text-align: center;
-        p {
+        /*p {
             font-size: 6vw;
-        }
+        }*/
     }
     .topRightMenu {
     background: url(../assets/img/topBarReady/character.png)  no-repeat;
@@ -22,5 +22,37 @@ top-bar {
         top: 0;
         right: 5vw;
     }
+
+    //ICON STYLES
+    .book {
+      background: url("../assets/img/topBarReady/book.png");
+      background-size: cover;
+      width: 17vw;
+      height: 20vw;
+      position: absolute;
+      top: 0;
+      right: 5vw;
+    }
+
+    .back {
+      background: url("../assets/img/topBarReady/back.png");
+      background-size: cover;
+      width: 17vw;
+      height: 20vw;
+      position: absolute;
+      top: 0;
+      right: 5vw;
+    }
+
+    .char {
+      background: url("../assets/img/topBarReady/character.png");
+      background-size: cover;
+      width: 17vw;
+      height: 20vw;
+      position: absolute;
+      top: 0;
+      right: 5vw;
+    }
+
 
 }
