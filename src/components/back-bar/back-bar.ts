@@ -8,18 +8,44 @@ import { NavController, NavParams } from 'ionic-angular';
 
 export class BackBarComponent {
 
-  @Input() currentPage: string;
+  @Input() currentPage: any;
+  backImg; bookImg: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    back() {
-      if (this.currentPage = "inventory") {
-        console.log("sei nell'inventario e torni alla pagina carachter");
-        this.navCtrl.push("CharacterPage");
-      } else {
-        console.log('clicked back');
-        this.navCtrl.pop();
-      }
+    //this.currentPage = this.navParams.get("currentPage");
+    console.log(this.currentPage);
+    //this.checkPage();
+  }
+
+  ionViewDidLoad() {
+    this.checkPage();
+  }
+
+  checkPage(){
+    console.log("IVDL check currentPage "+this.currentPage);
+    if (this.currentPage == "inventory") {
+      this.backImg = true;
+      this.bookImg = false;
+    } else if (this.currentPage == "character") {
+      this.backImg = false;
+      this.bookImg = true;
+    } else {
+      console.log('clicked back');
+      this.backImg = false;
+      this.bookImg = true;
+    }
+  }
+
+
+  popBack() {
+    console.log("pop back");
+    this.navCtrl.pop();
+  }
+
+    back(page) {
+      console.log("back to page");
+      this.navCtrl.push(page);
     }
 
 

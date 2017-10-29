@@ -9,7 +9,7 @@ page-character {
             display: flex;
             height: 27vh;
             font-family: Escargot;
-            font-size: 7vw;
+            font-size: 6.5vw;
         }
         .stats {
             display: flex;
@@ -21,7 +21,7 @@ page-character {
         }
 
         .label{
-            width: 45vw;
+            width: 40vw;
             color: map-get($colors, third);
             display: flex;
             flex-direction: column;
@@ -31,7 +31,7 @@ page-character {
             }
         }
         .value {
-            width: 10vw;
+            width: 15vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,6 +54,7 @@ page-character {
             height: 40vh;
             display: flex;
             flex-direction: column;
+            align-items: left;
         }
 
 

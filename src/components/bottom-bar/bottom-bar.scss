@@ -1,6 +1,6 @@
 bottom-bar {
     .stats{
-        background: url('../assets/img/bottomBar/bar.jpg') repeat-x;
+        background: url(../assets/img/bottomBar/bar.jpg) repeat-x;
         background-size: contain;
         display: flex;
         padding: 0 0 0 2vw;
@@ -10,7 +10,7 @@ bottom-bar {
         width: 70vw;
     }
     .stats:after{
-        background: url('../assets/img/bottomBar/barArrow.png') no-repeat;
+        background: url(../assets/img/bottomBar/barArrow.png) no-repeat;
         background-size: contain;
         height: 6vh;
         width: 9vw;
@@ -31,7 +31,7 @@ bottom-bar {
             margin-right: 0.5vw;
         }
     }
-    .inventory{
+    .settings{
         height: 10vh;
         margin: 0;
         position: absolute;
@@ -45,7 +45,7 @@ bottom-bar {
     .chapterFooter{
     width: 100vw;
     height: 10vh;
-    background: url('../assets/img/bottomBar/bottom.png');
+    background: url(../assets/img/bottomBar/bottom.png);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

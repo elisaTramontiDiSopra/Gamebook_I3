@@ -11,17 +11,19 @@ import { GameDataProvider } from '../../providers/game-data/game-data';
 export class ChoicesComponent {
 
   thereIsAChoice1; thereIsAChoice2; thereIsAChoice3: boolean;
-  
+
   @Input() chapNum;
   @Input() choice1;
   @Input() goTo1;
   @Input() choice2;
   @Input() goTo2;
-  @Input() choice3;
+  @Input() choice3; choice3_skill; choice3_skill_ok;
+  @Input() choice3_skill_no;
   @Input() goTo3;
   @Input() itemAcquired;
   @Input() skillAcquired;
   @Input() fightParams;
+
 
 
 /*
@@ -53,17 +55,19 @@ export class ChoicesComponent {
     console.log('choice function 1');
     //check if something is aquired with choice 1 add it as aquired
     if (this.itemAcquired !== undefined && this.itemAcquired[0] == 1) {
-      //console.log("item acquired with choice 2 item= "+this.itemAcquired[1])
       this.storage.set("acquired"+this.itemAcquired[1], true);
     }
     if (this.skillAcquired !== undefined && this.skillAcquired[0] == 1) {
       this.storage.set(this.skillAcquired[1], true);
     }
-    //this.gameData.getJsonData(this.goTo1);
+    //check if something is needed with choice 1
+    if (this)
+
+    //check if I'm going to the fight page
     if (this.goTo1 == "Fight") {
       this.navCtrl.push("FightPage", {
         fightParams: this.fightParams
-      }); 
+      });
     } else {
       console.log("gotoChapter "+this.goTo1);
       this.storage.set("chapter", this.goTo1);
@@ -94,11 +98,11 @@ export class ChoicesComponent {
 
   choice3Function(){
     console.log('choice function 3');
-    
+
     if (this.itemAcquired !== undefined && this.itemAcquired[0] == 3) {
       this.storage.set("acquired"+this.itemAcquired[1], true);
     }
-    
+
     if (this.skillAcquired !== undefined && this.skillAcquired[0] == 3) {
       this.storage.set(this.skillAcquired[1], true);
     }
@@ -113,6 +117,6 @@ export class ChoicesComponent {
   }
 
 
-  
+
 
 }

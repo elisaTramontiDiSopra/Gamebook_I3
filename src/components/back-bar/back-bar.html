@@ -1,1 +1,2 @@
-<div (tap)='back()' class="topRight back"></div>
+<div *ngIf="bookImg" (tap)='back("Cap1Page")' class="book">{{currentPage}}</div>
+<div *ngIf="backImg" (tap)='popBack()' class="back"></div>
